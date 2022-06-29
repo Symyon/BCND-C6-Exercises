@@ -159,7 +159,10 @@ contract ExerciseC6D {
 
         // CODE EXERCISE 3: Require that the response is being submitted for a request that is still open
         bytes32 key = keccak256(abi.encodePacked(index, flight, timestamp)); /* Replace 0 with code to generate a key using index, flight and timestamp */
-        require(oracleResponses[key].isOpen, "Response is not for an open request or flight and/or timestamp do not match");
+        require(
+            oracleResponses[key].isOpen,
+            "Response is not for an open request or flight and/or timestamp do not match"
+        );
 
         oracleResponses[key].responses[statusId].push(msg.sender);
 
